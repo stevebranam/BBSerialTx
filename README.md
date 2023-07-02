@@ -26,7 +26,9 @@ Note: GPIO is TTL-level, not RS-232 level, so the receiver must be a TTL UART de
 
 # Documentation
 
-The **documents** directory contains the documentation, generated with Doxygen from the **source** directory and **mainpage.md**. It includes the following sections:
+The **documents** directory contains the documentation in HTML format, generated with Doxygen from the **source** directory and **mainpage.md**. Once you've cloned the repo, navigate to **documents/html/index.html** in your browser to read the documentation.
+
+The main page includes the following sections:
 
 - **Usage:** How to use BBSerialTx on a target MCU.
 - **Hardware Connection:** How to connect the MCU to an external device.
@@ -35,6 +37,8 @@ The **documents** directory contains the documentation, generated with Doxygen f
 - **Build and Test:** Instructions for building and testing the Google Test suite locally for off-target testing.
 - **Analysis:** Source code and test coverage analysis.
 - **Tools:** The tools used to work on this (on Ubuntu 20.04).
+
+From there, it contains links to the Doxygen-formatted information about the code, generated from the Doxygen tags embedded in the source code comments.
 
 # Repo Contents
 
