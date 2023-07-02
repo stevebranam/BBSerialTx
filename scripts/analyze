@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+buildDir=$1
+testExecutable=$buildDir/testBBSerialTx
+objectRoot=$buildDir/CMakeFiles/BBSerialTx.dir
+
+if [[ -z "$buildDir" ]]; then
+    echo "Usage: $0 <build-directory>"
+    echo "Analyzes build in <build-directory>, (re)creating analysis directory."
+elif [[ ! -e $buildDir ]]; then
+    echo "Error: $buildDir directory not found."
+elif [[ ! -e $testExecutable ]]; then
+    echo "Error: $testExecutable not found."
+elif [[ ! -e "source" ]]; then
+    echo "Error: Source directory not found."
+else
+    echo "Removing previous analysis data."
+    rm -f $objectRoot/source/*.gcda
+    if [[ -e "analysis" ]]; then
+        rm -rf analysis
+    fi
+
+    echo "Create analysis directory."
+    mkdir analysis
+
+    echo
+    echo "Generate test-driven specification."
+    $testExecutable |
+        grep -A 999999 "Global test environment set-up" |
+        grep -B 999999 "Global test environment tear-down" |
+        grep -e OK -e FAILED |
+        sed -e "s/\[       OK \] /- PASSED: /" \
+            -e "s/\[  FAILED  \] /- *** FAILED ***: /" \
+            -e "s/ (.*$//" -e "s/_/ /g" -e "s/\./, /" \
+        > analysis/specification.txt
+
+    echo
+    echo "Perform MCC analysis."
+    pmccabe -v source/*.[ch] > analysis/pmccabe.txt
+
+    echo
+    echo "Perform coverage analysis."
+    lcov --directory $objectRoot --output-file analysis/lcov.info -c
+    genhtml analysis/lcov.info --output-directory analysis/lcov
+    mkdir analysis/gcov
+    cd analysis/gcov
+    gcov ../../source/*.c --object-directory ../../$objectRoot/source/ > gcov.txt
+
+    echo
+    echo "Coverage results:"
+    grep -v gcov gcov.txt
+fi
+

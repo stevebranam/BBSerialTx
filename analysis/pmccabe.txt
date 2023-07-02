@@ -1,0 +1,18 @@
+Modified McCabe Cyclomatic Complexity
+|   Traditional McCabe Cyclomatic Complexity
+|       |    # Statements in function
+|       |        |   First line of function
+|       |        |       |   # lines in function
+|       |        |       |       |  filename(definition line number):function
+|       |        |       |       |           |
+1	1	1	16	4	source/BBSerialTx.c(16): is_open
+3	3	5	26	10	source/BBSerialTx.c(26): write_bit
+4	4	7	51	22	source/BBSerialTx.c(51): BBSerialTx_Open
+1	1	1	77	4	source/BBSerialTx.c(77): BBSerialTx_Close
+5	5	16	103	32	source/BBSerialTx.c(103): BBSerialTx_Calibrate
+2	2	7	141	13	source/BBSerialTx.c(141): BBSerialTx_WriteByte
+5	5	10	163	21	source/BBSerialTx.c(163): BBSerialTx_WriteString
+8	8	20	193	42	source/BBSerialTx.c(193): BBSerialTx_WriteDecimal
+3	3	9	243	12	source/BBSerialTx.c(243): BBSerialTx_WriteUint8
+2	2	5	263	8	source/BBSerialTx.c(263): BBSerialTx_WriteUint16
+2	2	5	279	8	source/BBSerialTx.c(279): BBSerialTx_WriteUint32

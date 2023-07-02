@@ -1,0 +1,5 @@
+<map id="BBSerialTx_Open" name="BBSerialTx_Open">
+<area shape="rect" id="node1" title="Opens the BBSerialTx channel." alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#a2a6299770e9c2f066c29f8ae1d6366bc" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="188,5,267,32"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#a30eefd1ea020491e1e9ba967cc54d935" title="Predicate to check if BBSerialTx channel is open." alt="" coords="315,5,387,32"/>
+</map>

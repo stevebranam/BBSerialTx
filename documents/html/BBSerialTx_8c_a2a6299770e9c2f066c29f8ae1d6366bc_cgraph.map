@@ -1,0 +1,4 @@
+<map id="write_bit" name="write_bit">
+<area shape="rect" id="node1" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#a30eefd1ea020491e1e9ba967cc54d935" title="Predicate to check if BBSerialTx channel is open." alt="" coords="132,5,204,32"/>
+</map>

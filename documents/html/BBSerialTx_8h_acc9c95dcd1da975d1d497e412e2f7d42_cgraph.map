@@ -1,0 +1,7 @@
+<map id="BBSerialTx_WriteUint16" name="BBSerialTx_WriteUint16">
+<area shape="rect" id="node1" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#ae3e321cfc6adf88c16686638dc8c26db" title="Outputs an ASCII hex&#45;formatted UINT8 value on the open BBSerialTx channel." alt="" coords="232,5,403,32"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#ac54e6d7e100040fa4f22d7c34c8fc9fc" title="Outputs a raw binary byte on the open BBSerialTx channel." alt="" coords="451,5,616,32"/>
+<area shape="rect" id="node4" href="$BBSerialTx_8c.html#a2a6299770e9c2f066c29f8ae1d6366bc" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="664,5,743,32"/>
+<area shape="rect" id="node5" href="$BBSerialTx_8c.html#a30eefd1ea020491e1e9ba967cc54d935" title="Predicate to check if BBSerialTx channel is open." alt="" coords="791,5,863,32"/>
+</map>

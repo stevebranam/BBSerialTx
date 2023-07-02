@@ -1,0 +1,46 @@
+@startuml inline_umlgraph_1.png
+ditaa
++-----------------+                     +-------------------+
+| Target MCU Board|                     |  Development Host |
+|                 |                     |                   |
+|    +------+     |     +---------+     |                   |
+|    |      |     |     |         |     |                   |
+|    | GPIO |---->|---->| RX      |     |                   |
+|    | cFC2 |     |     |         |     |   +----------+    |
+|    +------+     |     | USB TTL |     |   | Terminal |    |
+|                 |     | Serial  |---->|-->| Emulator |    |
+|    +------+     |     | Adapter | USB |   |      cBLK|    |
+|    |      |     |     |         |     |   +----------+    |
+|    | GND  |-----|-----| GND     |     |              c806 |
+|    | cFC2 |     |     |    c9FF |     +-------------------+
+|    +------+     |     +---------+
+|            c2B1 |
++-----------------+
+@enduml
+@startuml inline_umlgraph_2.png
+participant BBSerialTx as TX
+participant minicom as RX
+
+TX -> RX: Serial data
+TX -> RX: Serial data
+TX -> RX: Serial data
+@enduml
+@startuml inline_umlgraph_3.png
+ditaa
++--------------------------------+                     +-------------------+
+|                                |                     |  Development Host |
+|          +------+              |                     |                   |
+| +------+ |      | +------+     |     +---------+     |                   |
+| |      | |      | | P13  |     |     |         |     |                   |
+| | GND  |-| LED  |-| GPIO |---->|---->| RX      |     |                   |
+| | cEEE | | cFF0 | | cEEE |     |     |         |     |  +----------+     |
+| +------+ |      | +------+     |     | USB TTL |     |  | Terminal |     |
+|     |    +------+              |     | Serial  |---->|->| Emulator |     |
+|     |                          |     | Adapter | USB |  |      cBLK|     |
+|     |                          |     |         |     |  +----------+     |
+|     +------------------------->|-----| GND     |     |              c806 |
+|                                |     |    c9FF |     +-------------------+
+|                                |     +---------+
+| c36F        Elegoo MEGA2560 R3 |
++--------------------------------+
+@enduml

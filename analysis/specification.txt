@@ -1,0 +1,19 @@
+- PASSED: Given UnopenedBBSerialTx, Should NotOpen When NullFunctionPointer
+- PASSED: Given UnopenedBBSerialTx, Should Open When NonNullFunctionPointer
+- PASSED: Given UnopenedBBSerialTx, Should NotWriteBit
+- PASSED: Given UnopenedBBSerialTx, Should WriteIdle When Open
+- PASSED: Given OpenBBSerialTx, Should NotWriteData When Closed
+- PASSED: Given OpenBBSerialTx, Should WriteTestPattern When Calibrating
+- PASSED: Given OpenBBSerialTx, Should WriteStartAndStopBits When WritingByte
+- PASSED: Given OpenBBSerialTx, Should WriteBinaryData When WritingByte
+- PASSED: Given OpenBBSerialTx, Should WriteCharData When WritingString
+- PASSED: Given OpenBBSerialTx, Should WriteTrailingSpaces When WritingString
+- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint8
+- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint16
+- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint32
+- PASSED: Given OpenBBSerialTx, Should WriteLeadingZeroes When WritingUint32
+- PASSED: Given OpenBBSerialTx, Should WriteAsciiDecimalData When WritingDecimal
+- PASSED: Given OpenBBSerialTx, Should WriteMinusSign When WritingNegativeDecimal
+- PASSED: Given OpenBBSerialTx, Should WriteAsciiZero When WritingZeroDecimal
+- PASSED: Given OpenBBSerialTx, Should WriteLeadingSpaces When WritingDecimal
+- PASSED: Given OpenBBSerialTx, Should WriteLeadingSpacesAndMinusSign When WritingNegativeDecimal

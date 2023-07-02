@@ -1,0 +1,12 @@
+<map id="is_open" name="is_open">
+<area shape="rect" id="node1" title="Predicate to check if BBSerialTx channel is open." alt="" coords="809,31,881,57"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8h.html#a1b297a1c1eb2d0854ff3cd8e8830abfb" title="Outputs a calibration pattern on the BBSerialTx channel." alt="" coords="247,5,406,32"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#a2a6299770e9c2f066c29f8ae1d6366bc" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="683,56,761,83"/>
+<area shape="rect" id="node4" href="$BBSerialTx_8h.html#a9a96c8aca7c761ac5551f839af6a1c39" title="Opens the BBSerialTx channel." alt="" coords="485,56,619,83"/>
+<area shape="rect" id="node5" href="$BBSerialTx_8h.html#ac54e6d7e100040fa4f22d7c34c8fc9fc" title="Outputs a raw binary byte on the open BBSerialTx channel." alt="" coords="469,107,635,133"/>
+<area shape="rect" id="node6" href="$BBSerialTx_8h.html#aceef961834b4015423081d547f913f2d" title="Outputs an ASCII decimal&#45;formatted value on the open BBSerialTx channel." alt="" coords="232,56,421,83"/>
+<area shape="rect" id="node7" href="$BBSerialTx_8h.html#a074d26ead8b441383287d56f9f87230c" title="Outputs a character string on the open BBSerialTx channel." alt="" coords="240,107,413,133"/>
+<area shape="rect" id="node8" href="$BBSerialTx_8h.html#ae3e321cfc6adf88c16686638dc8c26db" title="Outputs an ASCII hex&#45;formatted UINT8 value on the open BBSerialTx channel." alt="" coords="241,157,412,184"/>
+<area shape="rect" id="node9" href="$BBSerialTx_8h.html#acc9c95dcd1da975d1d497e412e2f7d42" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,132,184,159"/>
+<area shape="rect" id="node10" href="$BBSerialTx_8h.html#a82fdc5e457ec00df506ff1f66fa33469" title="Outputs an ASCII hex&#45;formatted UINT32 value on the open BBSerialTx channel." alt="" coords="5,183,184,209"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="BBSerialTx_WriteDecimal" name="BBSerialTx_WriteDecimal">
+<area shape="rect" id="node1" title="Outputs an ASCII decimal&#45;formatted value on the open BBSerialTx channel." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#ac54e6d7e100040fa4f22d7c34c8fc9fc" title="Outputs a raw binary byte on the open BBSerialTx channel." alt="" coords="243,5,408,32"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#a2a6299770e9c2f066c29f8ae1d6366bc" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="456,5,535,32"/>
+<area shape="rect" id="node4" href="$BBSerialTx_8c.html#a30eefd1ea020491e1e9ba967cc54d935" title="Predicate to check if BBSerialTx channel is open." alt="" coords="583,5,655,32"/>
+</map>
