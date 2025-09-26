@@ -1,5 +1,5 @@
 <map id="BBSerialTx_WriteUint8" name="BBSerialTx_WriteUint8">
 <area shape="rect" id="node1" title="Outputs an ASCII hex&#45;formatted UINT8 value on the open BBSerialTx channel." alt="" coords="232,31,403,57"/>
-<area shape="rect" id="node2" href="$BBSerialTx_8h.html#acc9c95dcd1da975d1d497e412e2f7d42" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,5,184,32"/>
-<area shape="rect" id="node3" href="$BBSerialTx_8h.html#a82fdc5e457ec00df506ff1f66fa33469" title="Outputs an ASCII hex&#45;formatted UINT32 value on the open BBSerialTx channel." alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#acc9c95dcd1da975d1d497e412e2f7d42" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#a82fdc5e457ec00df506ff1f66fa33469" title="Outputs an ASCII hex&#45;formatted UINT32 value on the open BBSerialTx channel." alt="" coords="5,56,184,83"/>
 </map>

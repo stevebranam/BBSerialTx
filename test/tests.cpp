@@ -140,22 +140,22 @@ public:
     }
 };
 
-TEST_F(Given_UnopenedBBSerialTx, Should_NotOpen_When_NullFunctionPointer)
+TEST_F(Given_UnopenedBBSerialTx, When_OpenedWithNullFunctionPointer_Then_ShouldNotOpen)
 {
     EXPECT_FALSE(BBSerialTx_Open(BAUD_RATE, NULL, WRITE_DURATION_NSEC));
 }
 
-TEST_F(Given_UnopenedBBSerialTx, Should_Open_When_NonNullFunctionPointer)
+TEST_F(Given_UnopenedBBSerialTx, When_OpenedWithNonNullFunctionPointer_Then_ShouldOpen)
 {
     EXPECT_TRUE(BBSerialTx_Open(BAUD_RATE, recorded_write, WRITE_DURATION_NSEC));
 }
 
-TEST_F(Given_UnopenedBBSerialTx, Should_NotWriteBit)
+TEST_F(Given_UnopenedBBSerialTx, When_Instantiated_Then_ShouldNotWriteBit)
 {
     EXPECT_EQ(num_recorded_bits, 0u);
 }
 
-TEST_F(Given_UnopenedBBSerialTx, Should_WriteIdle_When_Open)
+TEST_F(Given_UnopenedBBSerialTx, When_Opened_Then_ShouldWriteIdle)
 {
     EXPECT_TRUE(BBSerialTx_Open(BAUD_RATE, recorded_write, WRITE_DURATION_NSEC));
 
@@ -181,14 +181,14 @@ public:
     char recorded_string_buffer[STRING_BUFFER_LEN + 2];
 };
 
-TEST_F(Given_OpenBBSerialTx, Should_NotWriteData_When_Closed)
+TEST_F(Given_OpenBBSerialTx, When_Closed_Then_ShouldNotWriteData)
 {
     BBSerialTx_Close();
     BBSerialTx_WriteByte(0u);
     EXPECT_EQ(num_recorded_bits, 0u);
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteTestPattern_When_Calibrating)
+TEST_F(Given_OpenBBSerialTx, When_Calibrating_Then_ShouldWriteTestPattern)
 {
     BBSerialTx_Calibrate();
     writes_per_bit = BB_SERIAL_TX_CALIBRATION_WRITES_PER_BIT;
@@ -198,79 +198,79 @@ TEST_F(Given_OpenBBSerialTx, Should_WriteTestPattern_When_Calibrating)
     EXPECT_EQ(read_bit_run(BB_SERIAL_TX_IDLE), BB_SERIAL_TX_CALIBRATION_POSTAMBLE_WRITES);
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteStartAndStopBits_When_WritingByte)
+TEST_F(Given_OpenBBSerialTx, When_WritingByte_Then_ShouldWriteStartAndStopBits)
 {
     BBSerialTx_WriteByte(0u);
     EXPECT_TRUE(is_valid_framing());
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteBinaryData_When_WritingByte)
+TEST_F(Given_OpenBBSerialTx, When_WritingByte_Then_ShouldWriteBinaryData)
 {
     BBSerialTx_WriteByte(0x1bu);
     EXPECT_EQ(read_recorded_byte(), 0x1bu);
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteCharData_When_WritingString)
+TEST_F(Given_OpenBBSerialTx, When_WritingString_Then_ShouldWriteCharData)
 {
     BBSerialTx_WriteString("Test", 0);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 4u), "Test");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteTrailingSpaces_When_WritingString)
+TEST_F(Given_OpenBBSerialTx, When_WritingString_Then_ShouldWriteTrailingSpaces)
 {
     BBSerialTx_WriteString("Test", STRING_BUFFER_LEN);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), STRING_BUFFER_LEN), "Test      ");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteAsciiHexData_When_WritingUint8)
+TEST_F(Given_OpenBBSerialTx, When_WritingUint8_Then_ShouldWriteAsciiHexData)
 {
     BBSerialTx_WriteUint8(0x1bu);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 2u), "1B");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteAsciiHexData_When_WritingUint16)
+TEST_F(Given_OpenBBSerialTx, When_WritingUint16_Then_ShouldWriteAsciiHexData)
 {
     BBSerialTx_WriteUint16(0x2a4cu);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 4u), "2A4C");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteAsciiHexData_When_WritingUint32)
+TEST_F(Given_OpenBBSerialTx, When_WritingUint32_Then_ShouldWriteAsciiHexData)
 {
     BBSerialTx_WriteUint32(0xdeadbeefu);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 8u), "DEADBEEF");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteLeadingZeroes_When_WritingUint32)
+TEST_F(Given_OpenBBSerialTx, When_WritingUint32_Then_ShouldWriteLeadingZeroes)
 {
     BBSerialTx_WriteUint32(0x1u);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 8u), "00000001");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteAsciiDecimalData_When_WritingDecimal)
+TEST_F(Given_OpenBBSerialTx, When_WritingDecimal_Then_ShouldWriteAsciiDecimalData)
 {
     BBSerialTx_WriteDecimal(1234, 0u);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 4u), "1234");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteMinusSign_When_WritingNegativeDecimal)
+TEST_F(Given_OpenBBSerialTx, When_WritingNegativeDecimal_Then_ShouldWriteMinusSign)
 {
     BBSerialTx_WriteDecimal(-1234, 0);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 5u), "-1234");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteAsciiZero_When_WritingZeroDecimal)
+TEST_F(Given_OpenBBSerialTx, When_WritingZeroDecimal_Then_ShouldWriteAsciiZero)
 {
     BBSerialTx_WriteDecimal(0, 0u);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 1u), "0");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteLeadingSpaces_When_WritingDecimal)
+TEST_F(Given_OpenBBSerialTx, When_WritingDecimal_Then_ShouldWriteLeadingSpaces)
 {
     BBSerialTx_WriteDecimal(1234, STRING_BUFFER_LEN);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), STRING_BUFFER_LEN), "      1234");
 }
 
-TEST_F(Given_OpenBBSerialTx, Should_WriteLeadingSpacesAndMinusSign_When_WritingNegativeDecimal)
+TEST_F(Given_OpenBBSerialTx, When_WritingNegativeDecimal_Then_ShouldWriteLeadingSpacesAndMinusSign)
 {
     BBSerialTx_WriteDecimal(-1234, STRING_BUFFER_LEN);
     EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), STRING_BUFFER_LEN), "     -1234");

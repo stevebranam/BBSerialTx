@@ -339,6 +339,8 @@ CTRL-A Z for help | 9600 8N1 | NOR | Minicom 2.7.1 | VT102 | Offline | ttyUSB0
 
 @section build_sec Build and Test
 
+(See @ref tools_sec section below for all tools used and setup commands for Ubuntu Linux.)
+
 First run CMake to prepare the build environment, creating the directory @b build. This generates makefiles and
 Doxygen configuration.
 
@@ -428,25 +430,25 @@ Lines executed:100.00% of 84
 
 In file @b analysis/specification.txt:
 
-- PASSED: Given UnopenedBBSerialTx, Should NotOpen When NullFunctionPointer
-- PASSED: Given UnopenedBBSerialTx, Should Open When NonNullFunctionPointer
-- PASSED: Given UnopenedBBSerialTx, Should NotWriteBit
-- PASSED: Given UnopenedBBSerialTx, Should WriteIdle When Open
-- PASSED: Given OpenBBSerialTx, Should NotWriteData When Closed
-- PASSED: Given OpenBBSerialTx, Should WriteTestPattern When Calibrating
-- PASSED: Given OpenBBSerialTx, Should WriteStartAndStopBits When WritingByte
-- PASSED: Given OpenBBSerialTx, Should WriteBinaryData When WritingByte
-- PASSED: Given OpenBBSerialTx, Should WriteCharData When WritingString
-- PASSED: Given OpenBBSerialTx, Should WriteTrailingSpaces When WritingString
-- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint8
-- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint16
-- PASSED: Given OpenBBSerialTx, Should WriteAsciiHexData When WritingUint32
-- PASSED: Given OpenBBSerialTx, Should WriteLeadingZeroes When WritingUint32
-- PASSED: Given OpenBBSerialTx, Should WriteAsciiDecimalData When WritingDecimal
-- PASSED: Given OpenBBSerialTx, Should WriteMinusSign When WritingNegativeDecimal
-- PASSED: Given OpenBBSerialTx, Should WriteAsciiZero When WritingZeroDecimal
-- PASSED: Given OpenBBSerialTx, Should WriteLeadingSpaces When WritingDecimal
-- PASSED: Given OpenBBSerialTx, Should WriteLeadingSpacesAndMinusSign When WritingNegativeDecimal
+- PASSED: Given UnopenedBBSerialTx, When OpenedWithNullFunctionPointer Then ShouldNotOpen
+- PASSED: Given UnopenedBBSerialTx, When OpenedWithNonNullFunctionPointer Then ShouldOpen
+- PASSED: Given UnopenedBBSerialTx, When Instantiated Then ShouldNotWriteBit
+- PASSED: Given UnopenedBBSerialTx, When Opened Then ShouldWriteIdle
+- PASSED: Given OpenBBSerialTx, When Closed Then ShouldNotWriteData
+- PASSED: Given OpenBBSerialTx, When Calibrating Then ShouldWriteTestPattern
+- PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteStartAndStopBits
+- PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteBinaryData
+- PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteCharData
+- PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteTrailingSpaces
+- PASSED: Given OpenBBSerialTx, When WritingUint8 Then ShouldWriteAsciiHexData
+- PASSED: Given OpenBBSerialTx, When WritingUint16 Then ShouldWriteAsciiHexData
+- PASSED: Given OpenBBSerialTx, When WritingUint32 Then ShouldWriteAsciiHexData
+- PASSED: Given OpenBBSerialTx, When WritingUint32 Then ShouldWriteLeadingZeroes
+- PASSED: Given OpenBBSerialTx, When WritingDecimal Then ShouldWriteAsciiDecimalData
+- PASSED: Given OpenBBSerialTx, When WritingNegativeDecimal Then ShouldWriteMinusSign
+- PASSED: Given OpenBBSerialTx, When WritingZeroDecimal Then ShouldWriteAsciiZero
+- PASSED: Given OpenBBSerialTx, When WritingDecimal Then ShouldWriteLeadingSpaces
+- PASSED: Given OpenBBSerialTx, When WritingNegativeDecimal Then ShouldWriteLeadingSpacesAndMinusSign
 
 @subsection mcc_sec MCC Analysis
 
@@ -504,6 +506,9 @@ cd build
 cmake ..
 sudo make install
 cd
+
+# Install lcov:
+sudo apt install lcov
 
 # Install pmccabe:
 sudo apt install pmccabe

@@ -1,11 +1,11 @@
 <map id="write_bit" name="write_bit">
 <area shape="rect" id="node1" title="Output a one&#45;baud bit value to the open BBSerialTx channel." alt="" coords="683,56,761,83"/>
-<area shape="rect" id="node2" href="$BBSerialTx_8h.html#a9a96c8aca7c761ac5551f839af6a1c39" title="Opens the BBSerialTx channel." alt="" coords="485,31,619,57"/>
-<area shape="rect" id="node3" href="$BBSerialTx_8h.html#ac54e6d7e100040fa4f22d7c34c8fc9fc" title="Outputs a raw binary byte on the open BBSerialTx channel." alt="" coords="469,81,635,108"/>
-<area shape="rect" id="node4" href="$BBSerialTx_8h.html#a1b297a1c1eb2d0854ff3cd8e8830abfb" title="Outputs a calibration pattern on the BBSerialTx channel." alt="" coords="247,5,406,32"/>
-<area shape="rect" id="node5" href="$BBSerialTx_8h.html#aceef961834b4015423081d547f913f2d" title="Outputs an ASCII decimal&#45;formatted value on the open BBSerialTx channel." alt="" coords="232,56,421,83"/>
-<area shape="rect" id="node6" href="$BBSerialTx_8h.html#a074d26ead8b441383287d56f9f87230c" title="Outputs a character string on the open BBSerialTx channel." alt="" coords="240,107,413,133"/>
-<area shape="rect" id="node7" href="$BBSerialTx_8h.html#ae3e321cfc6adf88c16686638dc8c26db" title="Outputs an ASCII hex&#45;formatted UINT8 value on the open BBSerialTx channel." alt="" coords="241,157,412,184"/>
-<area shape="rect" id="node8" href="$BBSerialTx_8h.html#acc9c95dcd1da975d1d497e412e2f7d42" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,132,184,159"/>
-<area shape="rect" id="node9" href="$BBSerialTx_8h.html#a82fdc5e457ec00df506ff1f66fa33469" title="Outputs an ASCII hex&#45;formatted UINT32 value on the open BBSerialTx channel." alt="" coords="5,183,184,209"/>
+<area shape="rect" id="node2" href="$BBSerialTx_8c.html#a9a96c8aca7c761ac5551f839af6a1c39" title="Opens the BBSerialTx channel." alt="" coords="485,31,619,57"/>
+<area shape="rect" id="node3" href="$BBSerialTx_8c.html#ac54e6d7e100040fa4f22d7c34c8fc9fc" title="Outputs a raw binary byte on the open BBSerialTx channel." alt="" coords="469,81,635,108"/>
+<area shape="rect" id="node4" href="$BBSerialTx_8c.html#a1b297a1c1eb2d0854ff3cd8e8830abfb" title="Outputs a calibration pattern on the BBSerialTx channel." alt="" coords="247,5,406,32"/>
+<area shape="rect" id="node5" href="$BBSerialTx_8c.html#aceef961834b4015423081d547f913f2d" title="Outputs an ASCII decimal&#45;formatted value on the open BBSerialTx channel." alt="" coords="232,56,421,83"/>
+<area shape="rect" id="node6" href="$BBSerialTx_8c.html#a074d26ead8b441383287d56f9f87230c" title="Outputs a character string on the open BBSerialTx channel." alt="" coords="240,107,413,133"/>
+<area shape="rect" id="node7" href="$BBSerialTx_8c.html#ae3e321cfc6adf88c16686638dc8c26db" title="Outputs an ASCII hex&#45;formatted UINT8 value on the open BBSerialTx channel." alt="" coords="241,157,412,184"/>
+<area shape="rect" id="node8" href="$BBSerialTx_8c.html#acc9c95dcd1da975d1d497e412e2f7d42" title="Outputs an ASCII hex&#45;formatted UINT16 value on the open BBSerialTx channel." alt="" coords="5,132,184,159"/>
+<area shape="rect" id="node9" href="$BBSerialTx_8c.html#a82fdc5e457ec00df506ff1f66fa33469" title="Outputs an ASCII hex&#45;formatted UINT32 value on the open BBSerialTx channel." alt="" coords="5,183,184,209"/>
 </map>
