@@ -286,14 +286,16 @@ Analysis</h1>
 Specification</h2>
 <p>In file <b>analysis/specification.txt</b>:</p>
 <ul>
-<li>PASSED: Given UnopenedBBSerialTx, When OpenedWithNullFunctionPointer Then ShouldNotOpen</li>
-<li>PASSED: Given UnopenedBBSerialTx, When OpenedWithNonNullFunctionPointer Then ShouldOpen</li>
+<li>PASSED: Given UnopenedBBSerialTx, When Opened And NullFunctionPointer Then ShouldNotOpen</li>
+<li>PASSED: Given UnopenedBBSerialTx, When Opened And NonNullFunctionPointer Then ShouldOpen</li>
 <li>PASSED: Given UnopenedBBSerialTx, When Instantiated Then ShouldNotWriteBit</li>
 <li>PASSED: Given UnopenedBBSerialTx, When Opened Then ShouldWriteIdle</li>
 <li>PASSED: Given OpenBBSerialTx, When Closed Then ShouldNotWriteData</li>
 <li>PASSED: Given OpenBBSerialTx, When Calibrating Then ShouldWriteTestPattern</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteStartAndStopBits</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteBinaryData</li>
+<li>PASSED: Given OpenBBSerialTx, When WritingString And NullPointer Then ShouldWriteNothing</li>
+<li>PASSED: Given OpenBBSerialTx, When WritingString And EmptyString Then ShouldWriteNothing</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteCharData</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteTrailingSpaces</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingUint8 Then ShouldWriteAsciiHexData</li>

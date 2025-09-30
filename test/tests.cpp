@@ -140,12 +140,12 @@ public:
     }
 };
 
-TEST_F(Given_UnopenedBBSerialTx, When_OpenedWithNullFunctionPointer_Then_ShouldNotOpen)
+TEST_F(Given_UnopenedBBSerialTx, When_Opened_And_NullFunctionPointer_Then_ShouldNotOpen)
 {
     EXPECT_FALSE(BBSerialTx_Open(BAUD_RATE, NULL, WRITE_DURATION_NSEC));
 }
 
-TEST_F(Given_UnopenedBBSerialTx, When_OpenedWithNonNullFunctionPointer_Then_ShouldOpen)
+TEST_F(Given_UnopenedBBSerialTx, When_Opened_And_NonNullFunctionPointer_Then_ShouldOpen)
 {
     EXPECT_TRUE(BBSerialTx_Open(BAUD_RATE, recorded_write, WRITE_DURATION_NSEC));
 }
@@ -172,6 +172,7 @@ public:
         writes_per_bit = 1u;
         num_recorded_bits  = 0u;
         first_recorded_bit = 0u;
+        recorded_string_buffer[0] = '\0';
     }
 
     void TearDown( ) {
@@ -208,6 +209,18 @@ TEST_F(Given_OpenBBSerialTx, When_WritingByte_Then_ShouldWriteBinaryData)
 {
     BBSerialTx_WriteByte(0x1bu);
     EXPECT_EQ(read_recorded_byte(), 0x1bu);
+}
+
+TEST_F(Given_OpenBBSerialTx, When_WritingString_And_NullPointer_Then_ShouldWriteNothing)
+{
+    BBSerialTx_WriteString(NULL, 0);
+    EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 4u), "");
+}
+
+TEST_F(Given_OpenBBSerialTx, When_WritingString_And_EmptyString_Then_ShouldWriteNothing)
+{
+    BBSerialTx_WriteString("", 0);
+    EXPECT_STREQ(read_recorded_string(recorded_string_buffer, sizeof(recorded_string_buffer), 4u), "");
 }
 
 TEST_F(Given_OpenBBSerialTx, When_WritingString_Then_ShouldWriteCharData)

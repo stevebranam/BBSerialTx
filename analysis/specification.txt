@@ -1,11 +1,13 @@
-- PASSED: Given UnopenedBBSerialTx, When OpenedWithNullFunctionPointer Then ShouldNotOpen
-- PASSED: Given UnopenedBBSerialTx, When OpenedWithNonNullFunctionPointer Then ShouldOpen
+- PASSED: Given UnopenedBBSerialTx, When Opened And NullFunctionPointer Then ShouldNotOpen
+- PASSED: Given UnopenedBBSerialTx, When Opened And NonNullFunctionPointer Then ShouldOpen
 - PASSED: Given UnopenedBBSerialTx, When Instantiated Then ShouldNotWriteBit
 - PASSED: Given UnopenedBBSerialTx, When Opened Then ShouldWriteIdle
 - PASSED: Given OpenBBSerialTx, When Closed Then ShouldNotWriteData
 - PASSED: Given OpenBBSerialTx, When Calibrating Then ShouldWriteTestPattern
 - PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteStartAndStopBits
 - PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteBinaryData
+- PASSED: Given OpenBBSerialTx, When WritingString And NullPointer Then ShouldWriteNothing
+- PASSED: Given OpenBBSerialTx, When WritingString And EmptyString Then ShouldWriteNothing
 - PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteCharData
 - PASSED: Given OpenBBSerialTx, When WritingString Then ShouldWriteTrailingSpaces
 - PASSED: Given OpenBBSerialTx, When WritingUint8 Then ShouldWriteAsciiHexData

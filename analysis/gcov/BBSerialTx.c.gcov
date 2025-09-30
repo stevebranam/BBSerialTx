@@ -17,9 +17,9 @@
         -:   13:/**
         -:   14: * @brief Predicate to check if BBSerialTx channel is open.
         -:   15: */
-      808:   16:static inline bool is_open()
+      810:   16:static inline bool is_open()
         -:   17:{
-      808:   18:    return (Write_Output != NULL);
+      810:   18:    return (Write_Output != NULL);
         -:   19:}
         -:   20:
         -:   21:/**
@@ -27,16 +27,16 @@
         -:   23: * 
         -:   24: * @param[in] bit The bit value to output.
         -:   25: */
-      807:   26:static void write_bit(BBSerialTx_Bit_t bit)
+      809:   26:static void write_bit(BBSerialTx_Bit_t bit)
         -:   27:{
-      807:   28:    if (is_open())
+      809:   28:    if (is_open())
         -:   29:    {
-     2494:   30:        for (BBSerialTx_BitWriteCount_t write = 0; write < Writes_Per_Bit; write++)
+     2498:   30:        for (BBSerialTx_BitWriteCount_t write = 0; write < Writes_Per_Bit; write++)
         -:   31:        {
-     1697:   32:            Write_Output(bit);
+     1699:   32:            Write_Output(bit);
         -:   33:        }
         -:   34:    }
-      807:   35:}
+      809:   35:}
         -:   36:
         -:   37:/**
         -:   38: * @brief Opens the BBSerialTx channel.
@@ -52,12 +52,12 @@
         -:   48: * @retval True on successful validation of parameters.
         -:   49: * @retval False on failure.
         -:   50: */
-       18:   51:bool BBSerialTx_Open(BBSerialTx_BaudRate_t baud_rate,
+       20:   51:bool BBSerialTx_Open(BBSerialTx_BaudRate_t baud_rate,
         -:   52:                     BBSerialTx_WriteFunc_t write_function,
         -:   53:                     BBSerialTx_WriteNsec_t write_duration_nsec)
         -:   54:{
-       18:   55:    if ((baud_rate == 0u) ||
-       17:   56:        (write_function == NULL) ||
+       20:   55:    if ((baud_rate == 0u) ||
+       19:   56:        (write_function == NULL) ||
         -:   57:        (write_duration_nsec == 0u))
         -:   58:    {
         1:   59:        return false;
@@ -65,23 +65,23 @@
         -:   61:    else
         -:   62:    {
         -:   63:        /* Compute number of times to write output to achieve baud rate. */
-       17:   64:        BBSerialTx_WriteNsec_t nsec_per_bit = 1000000000u / baud_rate;
-       17:   65:        Writes_Per_Bit = nsec_per_bit / write_duration_nsec;
+       19:   64:        BBSerialTx_WriteNsec_t nsec_per_bit = 1000000000u / baud_rate;
+       19:   65:        Writes_Per_Bit = nsec_per_bit / write_duration_nsec;
         -:   66:
-       17:   67:        Write_Output = write_function;
+       19:   67:        Write_Output = write_function;
         -:   68:
-       17:   69:        write_bit(BB_SERIAL_TX_IDLE);
-       17:   70:        return true;
+       19:   69:        write_bit(BB_SERIAL_TX_IDLE);
+       19:   70:        return true;
         -:   71:    }
         -:   72:}
         -:   73:
         -:   74:/**
         -:   75: * @brief Closes the BBSerialTx channel.
         -:   76: */
-       20:   77:void BBSerialTx_Close(void)
+       22:   77:void BBSerialTx_Close(void)
         -:   78:{
-       20:   79:    Write_Output = NULL;
-       20:   80:}
+       22:   79:    Write_Output = NULL;
+       22:   80:}
         -:   81:
         -:   82:/**
         -:   83: * @brief Outputs a calibration pattern on the BBSerialTx channel.
@@ -164,27 +164,27 @@
         -:  160: * @param[in] string Pointer to the NUL-terminated string to output.
         -:  161: * @param[in] width Output width, padded with trailing spaces.
         -:  162: */
-        2:  163:void BBSerialTx_WriteString(const char *string, size_t width)
+        4:  163:void BBSerialTx_WriteString(const char *string, size_t width)
         -:  164:{
-        2:  165:    if (string != NULL)
+        4:  165:    if (string != NULL)
         -:  166:    {
         -:  167:        size_t length;
         -:  168:
         -:  169:        /* Save string length. */
-       10:  170:        for (length = 0; string[length] != '\0'; length++);
+       11:  170:        for (length = 0; string[length] != '\0'; length++);
         -:  171:
-       10:  172:        while (*string != '\0')
+       11:  172:        while (*string != '\0')
         -:  173:        {
         8:  174:            BBSerialTx_WriteByte(*string++);
         -:  175:        }
         -:  176:
         -:  177:        /* Output trailing spaces up to any width. */
-        8:  178:        while (length < width--)
+        9:  178:        while (length < width--)
         -:  179:        {
         6:  180:            BBSerialTx_WriteByte(' ');
         -:  181:        }
         -:  182:    }
-        2:  183:}
+        4:  183:}
         -:  184:
         -:  185:/**
         -:  186: * @brief Outputs an ASCII decimal-formatted value on the open BBSerialTx channel.
