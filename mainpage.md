@@ -11,6 +11,8 @@ https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter).
 This is suitable for connection to a UART receiver for logging or other
 unidirectional communications.
 
+For additional discussion, see related blog post [Bit-Banged Async Serial Output And Disciplined Engineering](https://embeddedrelated.com/showarticle/1544.php).
+
 BBSerialTx uses no external functions, timers, interrupts, DMA, UART's, or
 other MCU peripherals or resources, so it imposes minimal demands on the MCU or
 runtime context. As soon as you can bring up a single GPIO in any context, you
@@ -434,7 +436,7 @@ In file @b analysis/specification.txt:
 - PASSED: Given UnopenedBBSerialTx, When Opened And NonNullFunctionPointer Then ShouldOpen
 - PASSED: Given UnopenedBBSerialTx, When Instantiated Then ShouldNotWriteBit
 - PASSED: Given UnopenedBBSerialTx, When Opened Then ShouldWriteIdle
-- PASSED: Given OpenBBSerialTx, When Closed Then ShouldNotWriteData
+- PASSED: Given OpenBBSerialTx, And ThenClosed When Write ShouldNotWriteData
 - PASSED: Given OpenBBSerialTx, When Calibrating Then ShouldWriteTestPattern
 - PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteStartAndStopBits
 - PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteBinaryData

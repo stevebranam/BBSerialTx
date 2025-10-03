@@ -84,6 +84,7 @@ $(function() {
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
 <p>This module implements a bit-banged serial transmitter over a GPIO line using the 8N1 protocol (8-bit data, No parity, 1 stop bit, see <a href="https://en.wikipedia.org/wiki/8-N-1">https://en.wikipedia.org/wiki/8-N-1</a>), emulating a UART transmitter (see <a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter</a>). This is suitable for connection to a UART receiver for logging or other unidirectional communications.</p>
+<p>For additional discussion, see related blog post <a href="https://embeddedrelated.com/showarticle/1544.php">Bit-Banged Async Serial Output And Disciplined Engineering</a>.</p>
 <p>BBSerialTx uses no external functions, timers, interrupts, DMA, UART's, or other MCU peripherals or resources, so it imposes minimal demands on the MCU or runtime context. As soon as you can bring up a single GPIO in any context, you can get serial output.</p>
 <p>The only resource consumed is CPU time. This can affect timing-critical operations, so be sure the system can tolerate the delay imposed by outputting data. This can create Heisenbugs: the act of observing the system perturbs it.</p>
 <p>The hardware connection is a two-wire connection: TX (the GPIO line) to RX, and GND to GND.</p>
@@ -290,7 +291,7 @@ Specification</h2>
 <li>PASSED: Given UnopenedBBSerialTx, When Opened And NonNullFunctionPointer Then ShouldOpen</li>
 <li>PASSED: Given UnopenedBBSerialTx, When Instantiated Then ShouldNotWriteBit</li>
 <li>PASSED: Given UnopenedBBSerialTx, When Opened Then ShouldWriteIdle</li>
-<li>PASSED: Given OpenBBSerialTx, When Closed Then ShouldNotWriteData</li>
+<li>PASSED: Given OpenBBSerialTx, And ThenClosed When Write ShouldNotWriteData</li>
 <li>PASSED: Given OpenBBSerialTx, When Calibrating Then ShouldWriteTestPattern</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteStartAndStopBits</li>
 <li>PASSED: Given OpenBBSerialTx, When WritingByte Then ShouldWriteBinaryData</li>

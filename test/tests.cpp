@@ -182,7 +182,7 @@ public:
     char recorded_string_buffer[STRING_BUFFER_LEN + 2];
 };
 
-TEST_F(Given_OpenBBSerialTx, When_Closed_Then_ShouldNotWriteData)
+TEST_F(Given_OpenBBSerialTx, And_ThenClosed_When_Write_ShouldNotWriteData)
 {
     BBSerialTx_Close();
     BBSerialTx_WriteByte(0u);

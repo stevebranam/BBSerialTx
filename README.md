@@ -7,6 +7,8 @@ https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter).
 This is suitable for connecting an MCU to a UART receiver for logging or other
 unidirectional communications.
 
+For additional discussion, see related blog post [Bit-Banged Async Serial Output And Disciplined Engineering](https://embeddedrelated.com/showarticle/1544.php).
+
 BBSerialTx uses no external functions, timers, interrupts, DMA, UART's, or
 other MCU peripherals or resources, so it imposes minimal demands on the MCU or
 runtime context. As soon as you can bring up a single GPIO in any context, you
